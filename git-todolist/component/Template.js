@@ -5,19 +5,21 @@ import {useState} from 'react';
 
 const Template = () => {
   const [mode, setMode] = useState('VIEW');
-  const todoList = [];
+  const todoList = [
+    {id:1, todo:'할 일을 입력하세요'}
+  ];
   let children = null;
   
   if (mode === 'VIEW'){
-    todoList.forEach
-    children = <Form todo={todo} />
+    todoList.forEach();
+    children = <Form todo='view' />
   }
   else if (mode === 'ADD'){
-    todoList.push
+    todoList.push();
     children = <Form todo='add' />
   }
   else if (mode === 'EDIT'){
-    todoList.map
+    todoList.map();
     children = <Form todo='edit' />
   }
 

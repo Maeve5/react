@@ -11,16 +11,18 @@ const Template = () => {
   let children = null;
   
   if (mode === 'VIEW'){
-    todoList.forEach();
-    children = <Form todo='view' />
+    todoList.forEach(s=>{
+      console.log(s);
+      // children = <Form todo='view' />
+    });
   }
   else if (mode === 'ADD'){
     todoList.push();
-    children = <Form todo='add' />
+    // children = <Form todo='add' />
   }
   else if (mode === 'EDIT'){
     todoList.map();
-    children = <Form todo='edit' />
+    // children = <Form todo='edit' />
   }
 
   return (

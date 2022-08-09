@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+/* Template.js */
+.todolistTemplate {
+  width: 512px;
+  margin: auto;
+  margin-top: 4rem;
+  border: 1px solid rgb(10, 185, 129);
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 700;
+  padding: 20px 0;
+}
+
+.formWrap {
+  min-height: 90px;
+}
+
+/* Nav.js */
+.navWrap {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  height: 30px;
+  align-items: center;
+}
+
+.navItem {
+  display: block;
+  width: 30%;
+  height: fit-content;
+}
+
+.navItem:hover {
+  color: rgb(0, 129, 88);
+}
+
+a {
+  text-decoration-line: none;
+  color: black;
+}
+
+a:active {
+  color: rgb(0, 129, 88);
+}

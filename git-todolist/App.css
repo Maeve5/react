@@ -2,7 +2,32 @@
   text-align: center;
 }
 
+input {
+  margin-right: 5px;
+}
+
+article {
+  margin: 5px 0;
+  margin-left: 4rem;
+  text-align: left;
+}
+
+article div {
+  margin-bottom: 10px;
+}
+
+.todoInput {
+  width: 310px;
+  border: none;
+  border-bottom: 1px solid rgb(10, 185, 129);
+}
+
 /* Template.js */
+
+p {
+  font-size: 13px;
+}
+
 .todolistTemplate {
   width: 512px;
   margin: auto;
@@ -16,34 +41,40 @@
   padding: 20px 0;
 }
 
-.formWrap {
-  min-height: 90px;
-}
-
 /* Nav.js */
 .navWrap {
   list-style: none;
   display: flex;
   justify-content: space-evenly;
-  height: 30px;
-  align-items: center;
+  background-color: rgb(10, 185, 129);
 }
 
 .navItem {
   display: block;
   width: 30%;
-  height: fit-content;
+  height: 30px;
+  line-height: 30px;
 }
 
 .navItem:hover {
   color: rgb(0, 129, 88);
+  background-color: white;
 }
 
 a {
   text-decoration-line: none;
-  color: black;
+  color: white;
+  font-weight: 500;
 }
 
-a:active {
+a:focus {
   color: rgb(0, 129, 88);
+  background-color: white;
 }
+
+/* View.js */
+.viewWrap {
+  margin: 10px 0;
+}
+
+

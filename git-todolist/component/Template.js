@@ -1,28 +1,54 @@
 import React from 'react';
 import Nav from './Nav';
-import Form from './Form';
+import View from './View';
+import Add from './Add';
+import Edit from './Edit';
 import {useState} from 'react';
 
 const Template = () => {
   const [mode, setMode] = useState('VIEW');
-  const todoList = [
-    {id:1, todo:'할 일을 입력하세요'}
-  ];
-  let children = null;
+  const [id, setId] = useState(0);
+  const [nextId, setNextId] = useState(1);
+  const [todoLists, setTodoLists] = useState([]);
+  let content = null;
   
   if (mode === 'VIEW'){
-    todoList.forEach(s=>{
-      console.log(s);
-      // children = <Form todo='view' />
-    });
+    if (id === 0){
+      content = <p>ADD를 눌러 할 일을 추가하세요.</p>
+    }
+    else {
+      content = <View todoLists={todoLists} onChangeMode={(id)=>{
+        setMode('View');
+        setId(id);
+      }} />
+    }
   }
   else if (mode === 'ADD'){
-    todoList.push();
-    // children = <Form todo='add' />
+    content = <>
+      <View todoLists={todoLists} />
+      <Add onAdd={(todo)=>{
+      const newList = {id:nextId, todo:todo}
+      const newLists = [...todoLists]
+      newLists.push(newList);
+      setTodoLists(newLists);
+      setId(nextId);
+      setNextId(nextId+1);
+      console.log(todoLists);
+    }} />    
+    </>
   }
   else if (mode === 'EDIT'){
-    todoList.map();
-    // children = <Form todo='edit' />
+    let todo = null;
+    todoLists.forEach(s => {
+      todo = s.todo;
+    })
+    content = <Edit todo={todo} onEdit={(todo)=>{
+      const editList = {id:nextId, todo:todo}
+      const newLists = [...todoLists]
+      newLists.map(editList);
+      setTodoLists(newLists);
+      setMode('VIEW');
+    }}/>
   }
 
   return (
@@ -34,7 +60,7 @@ const Template = () => {
         setMode(title);
       }} />
       <section className='formWrap'>
-        {children}
+        {content}
       </section>
     </main>
   );

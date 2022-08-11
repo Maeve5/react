@@ -1,21 +1,23 @@
 import React from 'react';
-import {useState} from 'react';
+import EditForm from './EditForm';
 
-const Edit = (props) => {
-    const [todo, setTodo] = useState(props.todo);
-    return <article>
-    <form onSubmit={event => {
-        event.preventDefault();
-        const todo = event.target.todo.value;
-        props.onEdit(todo);
-    }}>
-        <input type="checkbox" />
-        <input type="text" name="todo" className='todoInput' placeholder='할 일을 입력하세요.' autoComplete='off' value={todo} onChange={event => {
-            setTodo(event.target.value);
-        }}/>
-        <input type="submit" value="Edit"/>
-    </form>
-</article>
+const Edit = ({todoLists, todo, onEdit, onDelete}) => {
+
+    return (
+        <article className="todoWrap">
+            {todoLists.map((row, idx) => {
+                return (
+                    <EditForm
+                    key={`edit-form-${idx}`}
+                    id={row.id}
+                    todo={row.todo}
+                    onEdit={onEdit}
+                    onDelete={onDelete}
+                    />
+                    )
+                })}
+        </article>
+    )
 };
 
 export default Edit;

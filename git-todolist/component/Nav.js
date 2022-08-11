@@ -2,7 +2,7 @@ import React from 'react';
 
 const Nav = (props) => {
     return <div className='navWrap'>
-        <a title='VIEW' className='navItem' href='/view' onClick={event => {
+        <a title='VIEW' className={`navItem ${(props.mode === "VIEW") && 'active'}`} href='/view' onClick={event => {
             event.preventDefault();
             props.onChangeMode(event.target.title);
         }}>VIEW</a>
